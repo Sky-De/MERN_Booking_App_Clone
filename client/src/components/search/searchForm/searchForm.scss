@@ -1,0 +1,65 @@
+
+
+.form{
+    
+    flex: 1;
+    max-width: 350px;
+    min-width: 350px;
+    background: #febb02;
+    padding: 1rem;
+    // border-radius: 10px;
+    @media screen and (min-width:900px) {
+            position: sticky;
+            top: 10px;
+            height: max-content;
+    }
+    &__title{
+        margin-bottom: 1rem;
+    }
+
+    &__inputControl {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+    &__dateShow{
+        cursor: pointer;
+        text-align: center;
+        background: #fff;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+    }    
+    &__date{
+        cursor: pointer;
+    }
+    input:not(:first-child){
+        border: none;
+        padding: 0.35rem;
+        border-radius: 5px;     
+    }
+    
+    
+    &__options{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    &__btn{
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        width: 100%;
+        padding: 1rem 0;
+        border: none;
+        font-weight: bold;
+        background: #0071c2;
+        color: #fff;
+        transition: background 0.3s ease-in;
+        cursor: pointer;
+        
+        &:hover{
+            background: #003580;
+        }
+    }
+}

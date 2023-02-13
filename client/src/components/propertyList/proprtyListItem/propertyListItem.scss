@@ -1,0 +1,19 @@
+.propertyListItem{
+    cursor: pointer;
+    border-radius: 8px;
+    
+    &__img{
+    border-radius: 8px;
+    }
+
+    &__titles{
+        h3{
+            font-size: 0.98rem;
+            text-transform: capitalize;
+        }
+        h4{
+            font-size: 0.85rem;
+            color: gray;
+        }
+    }
+}

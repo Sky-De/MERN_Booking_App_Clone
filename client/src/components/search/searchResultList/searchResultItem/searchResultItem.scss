@@ -1,0 +1,114 @@
+
+// all design is for desktop // must refactore with mobile first
+.resultItem{
+    // max-width: fit-content;
+    min-width: 100%;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    column-gap: 2rem;
+    border: 1px solid rgb(182, 182, 182);
+    padding: 1.5rem;
+    
+    
+    @media screen and (min-width:900px) {
+        padding: 0.5rem;
+        flex-direction: row;
+        
+    }
+
+
+    &__img{
+        // border: 1px solid red;
+        img{
+            width: 400px;
+            height: auto;
+        }
+    }
+
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex: 2;
+    }
+
+    &__freeTaxi{
+        color: #fff;
+        background: #008009;
+        border-radius: 5px;
+        width: fit-content;
+        padding: 0.15rem 0.3rem;
+        font-size: 0.8rem;
+    }
+
+
+
+    &__title{
+        a{
+        color: #0071c2;
+        text-decoration: none;
+        }
+    }
+
+    &__freeCanceling--s{
+        color: #008009;
+        font-size: 0.9rem;
+    }
+    &__freeCanceling--p{
+        color: #008009;
+        font-size: 0.8rem;
+    }
+
+
+    &__details{
+        flex: 1;
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2.5rem 0 1rem 0;
+        row-gap: 1rem;
+        @media screen and (min-width:900px) {
+            padding: 0.5rem 0;   
+        }
+    }
+
+    &__details--price{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        row-gap: 0.5rem;
+
+        p{
+            font-size: 0.8rem;
+        }
+
+        button{
+            border: none;
+            width: 100%;
+            padding: 0.5rem 0;
+            background: #0071c2;
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+    }
+
+    &__details--rate{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span{
+            background: #003580;
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        strong{
+
+        }
+    }
+}

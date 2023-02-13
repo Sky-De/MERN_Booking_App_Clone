@@ -1,0 +1,16 @@
+.inputControl{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__number{
+        max-width: 50px;
+        text-align: center;
+    }
+    small{
+        opacity: 0.5;
+        user-select: none;
+    }
+    
+}

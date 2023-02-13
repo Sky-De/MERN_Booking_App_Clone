@@ -1,0 +1,116 @@
+.HotelPageSkeleton{
+    padding: 3rem 0;
+    width: 100%!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__intro{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (min-width:600px) {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+    }
+    &__intro--one{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (min-width:600px) {
+            align-items: flex-start;
+        }
+    }
+
+    &__title{
+        width: 80px;
+        height: 50px!important;
+    }
+    &__address{
+        width: 250px;
+    }
+    &__info{
+        width: 200px;
+    }
+    &__info2{
+        width: 90%;
+            @media screen and (min-width:600px) {
+                width: 350px;
+            }
+    }
+    &__fee{
+        width: 320px;
+    }
+    &__reserveBtn{
+        width: 170px;
+        height: 60px!important;
+    }
+    &__img{
+        width: 100%;
+        height: 350px!important;
+        @media screen and (min-width:600px) {
+            width: 320px!important;
+        }
+    }
+    &__images{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        @media screen and (min-width:600px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+        }
+    }
+    &__reserveBox{
+        @media screen and (min-width:600px) {
+            width: 250px;
+        }
+        height: 200px!important;
+    }
+
+
+    &__reserveInfo{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        @media screen and (min-width:600px) {
+            flex-direction: row;
+            justify-content: space-between;
+            row-gap: 1rem;
+        }
+        
+    }
+    &__reserveInfo--one{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (min-width:600px) {
+            align-items: flex-start;
+            width: 40%;
+            
+        }
+        
+    }
+    &__reserveInfo--two{
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+        @media screen and (min-width:600px) {
+            width: 40%;
+            
+        }
+        
+    }
+    
+    
+  
+}

@@ -1,0 +1,32 @@
+.featuredItem{
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    
+    &:hover img{
+        transform: scale(1.1);
+    }
+    &:hover &__titles{
+        width: 100%;
+    }
+    &__img{
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        width: 310px;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    &__titles{
+        color: #fff;
+        width: 50%;
+        transition: all 0.3s ease;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+    }
+}

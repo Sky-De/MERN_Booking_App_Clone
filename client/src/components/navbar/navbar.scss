@@ -1,0 +1,54 @@
+.navbar{
+    height: 50px;
+    background: #003580;
+    display: flex;
+    justify-content: center;
+
+    &__Container{
+    width: 100%;
+    max-width: 1024px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    }
+
+    &__logo{
+        font-weight: 500;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &__Button{
+        border: none;
+        outline: none;
+        margin-left: 20px;
+        cursor: pointer;
+        background-color: #003580;
+        padding: 15px 10px;
+        color: #fff;
+    }
+    &__LOGOUT--icon{
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    &__userName{
+        cursor: pointer;
+    }
+    &__items{
+        z-index: 2;
+    }
+
+    &__profile{
+        display: flex;
+        align-items: center;
+        span{
+            margin-right: 1rem;
+        }
+    }
+}
+
+
+

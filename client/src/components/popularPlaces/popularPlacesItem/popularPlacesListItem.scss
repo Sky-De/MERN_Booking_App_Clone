@@ -1,0 +1,19 @@
+.popularPlacesListItem{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &__name{
+        font-weight: bold;
+    }
+    .bold{
+        font-weight: bold;
+    }
+    &__btn{
+        background: #003580;
+        color: #fff;
+        border: none;
+        padding: 3px 5px;
+        margin-right: 0.5rem;
+    }
+}

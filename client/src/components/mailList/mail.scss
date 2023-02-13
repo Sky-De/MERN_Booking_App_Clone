@@ -1,0 +1,65 @@
+.subscribe{
+    max-width: 100%;
+    // overflow: hidden;
+    color: #fff;
+    background: #01193a;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem 0;
+    &__popUp{
+        padding: 2rem;
+    }
+    &__form{
+        display: grid;
+
+        .inputControl{
+            position: relative;
+            &__popUp{
+                position: absolute;
+                top: calc(50% - 8px);
+                left: -120px;
+                width: 100px;
+                height: 8px;
+                color: rgb(255, 255, 255);
+            }
+
+            input{
+                padding: 0.3rem 4rem 0.3rem 0.3rem;
+                margin-right: 0.10rem;
+            }
+            button{
+                padding: 0.45rem 1.5rem;
+                background: #003580;
+                color: #fff;
+                border: none;
+                transition: all 0.3s ease-in;
+                cursor: pointer;
+                &:hover{
+                    background: #3764a3;
+                }
+            }
+
+        }
+    }
+
+    &__title{
+        font-weight: 400;
+    }
+    &__description{
+        color: gray;
+        font-size: 0.7rem;
+        margin-bottom: 0.75rem;
+
+    }
+
+    &__checkMark{
+        margin-top: 0.35rem;
+        display: flex;
+        align-items: center;
+        column-gap: 0.25rem;
+        label{
+            color: #fff;
+            font-size: 0.75rem;
+        }
+    }
+}

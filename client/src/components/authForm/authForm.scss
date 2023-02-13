@@ -1,0 +1,39 @@
+.authForm{
+    display: grid;
+    max-width: 350px;
+    min-width: 350px;
+    padding: 1.5rem 1rem;
+    
+    &__toggle{
+        cursor: pointer;
+        max-width: fit-content;
+    }
+
+    &__control{
+        display: grid;
+        row-gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    &__btn{
+        outline: none;
+        padding: 0.5rem 2rem;
+        background-color: #3764a3;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__action{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+    }
+
+    &__err{
+        justify-self: center;
+        color: red;
+    }
+
+}

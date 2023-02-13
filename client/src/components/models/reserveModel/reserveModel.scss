@@ -1,0 +1,22 @@
+.dialog{
+
+    &__title{
+        width: 100vw;
+    }
+    &__content--text{
+    }
+    &__content{
+        border: 1px solid rgb(6, 210, 64);
+        display: flex;
+    }
+    &__action{
+    }
+    &__con{
+        
+    }
+    &__list{
+        max-height: 400px;
+        overflow-y: scroll;    
+    }
+    
+}

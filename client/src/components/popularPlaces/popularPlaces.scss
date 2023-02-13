@@ -1,0 +1,32 @@
+.popularPlaces{
+    width: 100%;
+    padding: 0 1rem;
+    max-width: 1024px;
+
+    &__title{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__list{
+        list-style: none;
+        display: flex;
+        max-width: 100%;
+        gap: 1rem;
+        overflow: scroll;
+        @media screen and (min-width:900px) {
+            overflow: hidden;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}
+
+
+
+
+//need uncomment after testing finished
+
+// ::-webkit-scrollbar {
+//     display: none;
+// }
