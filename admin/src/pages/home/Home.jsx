@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="home">
       <Sidebar />
-      {!user ? <div className="homeContainer">Login for access</div> 
+      {!user ? <div className="emptyPage">Login for access</div> 
       :( <div className="homeContainer">
         <Navbar />
         <div className="widgets">

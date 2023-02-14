@@ -15,6 +15,7 @@ import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
+import { Alert, CircularProgress } from '@mui/material';
 
 function Copyright(props) {
   return (
@@ -32,42 +33,15 @@ function Copyright(props) {
 const theme = createTheme();
 
 export const Auth = () => {
-  const [isSignup,setIsSignup] = React.useState(false);
   const navigate = useNavigate();
   const { loading, error, dispatchAuth } = React.useContext(AuthContext);
   
-  const toggleAuthType = () => setIsSignup(pre => !pre);
 
   
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // must send username/usermail/userpassword to backend
-    if(isSignup){
-      // signUp-----------------------------------------------------------------------------------
-      if(data.get('password') !== data.get('Rpassword')) return console.log("pass in not match");
-      const userData = {
-        username: data.get('name'),
-        usermail: data.get('email'),
-        userpassword: data.get('password'),
-      }
-      // this line uses actions to register
-      // registerUser(userData);
-
-      dispatchAuth({type:"SIGN_UP_START"});
-      // this line registers directly here
-      try {
-        const { data } = await axios.post("http://localhost:1818/api/v1/auth/register", userData);
-        // console.log(data);
-        dispatchAuth({type: "SIGN_UP_SUCCESS", payload: data});
-        navigate("/");
-        
-      } catch (err) {
-        // console.log(err);
-        dispatchAuth({type: "SIGN_UP_FAILURE", payload: err.response.data});
-      }
-
-    }else{
       // logIn-----------------------------------------------------------------------------------
       const userData = {
         username: data.get('name'),
@@ -90,8 +64,6 @@ export const Auth = () => {
         dispatchAuth({type: "LOGIN_FAILURE", payload: err.response.data});
 
       }
-      
-    }
   };
 
   return (
@@ -122,15 +94,6 @@ export const Auth = () => {
               name="name"
               autoFocus
             />
-            {isSignup &&<TextField
-              margin="normal"
-              required
-              fullWidth
-              id="usermail"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-            />}
             <TextField
               margin="normal"
               required
@@ -141,15 +104,6 @@ export const Auth = () => {
               id="password"
               autoComplete="current-password"
             />
-            {isSignup &&<TextField
-              margin="normal"
-              required
-              fullWidth
-              name="Rpassword"
-              label="R-password"
-              type="password"
-              id="Rpassword"
-            />}
             <Button
               type="submit"
               fullWidth
@@ -158,22 +112,10 @@ export const Auth = () => {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Typography className='ToggleBtn' onClick={toggleAuthType} variant="body1">
-                  {"Don't have an account? Sign Up"}
-                </Typography>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
-        {loading && <span>loading...</span>}
-        {error && <span>error...</span>}
+        {loading && <CircularProgress color="success"/>}
+        {error && <Alert severity="error" >{error.message}</Alert>}
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>

@@ -37,6 +37,7 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
+{  user && (<>
           <p className="title">MAIN</p>
           <li>
             <DashboardIcon className="icon" />
@@ -90,6 +91,7 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          </>)}
           <li>
             <ExitToAppIcon className="icon" />
             <span onClick={goToAuth}>{user ? "Logout" : "Login"}</span>
