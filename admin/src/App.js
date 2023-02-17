@@ -3,36 +3,44 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-
+import { AuthContext } from "./context/AuthContext";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
+  const { user } = useContext(AuthContext);
+  const ProtectetRoute = ({children}) => {
+    if(!user){
+      return <Navigate to="/login"/>
+    }
 
+    return children;
+
+  }
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
+            <Route index element={<ProtectetRoute><Home /></ProtectetRoute>} />
             <Route path="login" element={<Login />} />
             <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
+              <Route index element={<ProtectetRoute><List /></ProtectetRoute>} />
+              <Route path=":userId" element={<ProtectetRoute><Single /></ProtectetRoute>} />
               <Route
                 path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
+                element={<ProtectetRoute><New inputs={userInputs} title="Add New User" /></ProtectetRoute>}
               />
             </Route>
             <Route path="products">
-              <Route index element={<List />} />
+              <Route index element={<ProtectetRoute><List /></ProtectetRoute>} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={<ProtectetRoute><New inputs={productInputs} title="Add New Product" /></ProtectetRoute>}
               />
             </Route>
           </Route>

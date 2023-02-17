@@ -41,7 +41,7 @@ export const loginUser = async(req,res,next) => {
             httpOnly: true,
         })
         .status(200)
-        .json({...userInformation});
+        .json({details :{...userInformation}, isAdmin});
     } catch (err) {
         next(err)
     }

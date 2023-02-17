@@ -22,8 +22,8 @@ const AuthForm = () => {
       dispatchAuth({type:"LOGIN_START"});
   
       try {
-        const res = await axios.post("/v1/auth/login", userInfo);
-        dispatchAuth({type:"LOGIN_SUCCESS", payload:res.data});
+        const { data } = await axios.post("/v1/auth/login", userInfo);
+        dispatchAuth({type:"LOGIN_SUCCESS", payload:data.details});
         dispatchModel({type:"CLOSE_AUTH_MODEL"});
       } catch (error) {
         dispatchAuth({type:"LOGIN_FAILURE", payload: error.response.data});

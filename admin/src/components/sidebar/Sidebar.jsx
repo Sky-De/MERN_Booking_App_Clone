@@ -22,7 +22,8 @@ const Sidebar = () => {
   const navigate = useNavigate()
   const goToAuth = () => {
     if(user) {
-      dispatchAuth({type:"LOGOUT"})
+      dispatchAuth({type:"LOGOUT"});
+      navigate('/');
     }
     else navigate("/login");
   }
@@ -31,7 +32,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Admin</span>
+          <span className="logo">Admin{user ? `: ${user.userName}` : ''}</span>
         </Link>
       </div>
       <hr />

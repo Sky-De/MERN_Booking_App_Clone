@@ -55,10 +55,12 @@ export const Auth = () => {
       try {
         const { data } = await axios.post("http://localhost:1818/api/v1/auth/login", userData);
         // console.log(data);
-        dispatchAuth({type: "LOGIN_SUCCESS", payload: data});
-        localStorage.setItem("user", JSON.stringify(data));
-        navigate("/");
-        
+        if(data.isAdmin) {
+          dispatchAuth({type: "LOGIN_SUCCESS", payload: data.details});
+          localStorage.setItem("user", JSON.stringify(data.details));
+          navigate("/");
+        }else dispatchAuth({type: "LOGIN_FAILURE", payload: {message : "You are not allowed"}});
+         
       } catch (err) {
         // console.log(err);
         dispatchAuth({type: "LOGIN_FAILURE", payload: err.response.data});
