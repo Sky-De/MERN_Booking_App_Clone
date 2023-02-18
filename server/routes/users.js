@@ -13,7 +13,7 @@ router.get("/", isUserAuth, getUsers);
 router.post("/reservedRooms", getReservedRooms);
 router.patch("/reserveRoom", updateReserve);
 router.patch("/:id", userAuth, updateUser);
-router.delete("/:id", userAuth, removeUser);
+router.delete("/:id", adminAuth, removeUser);
 
 
 

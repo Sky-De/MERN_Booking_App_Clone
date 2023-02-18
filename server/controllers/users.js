@@ -26,15 +26,13 @@ export const getUser = async(req,res,next) => {
 // REMOVE USER WITH ID
 export const removeUser = async(req,res,next) => {
     const { id } = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message:`there is no user with ID : ${id}`});
     const user = await UserModel.findById(id);
     if(!user) return res.status(404).json({message: `there is no user with id : ${id}`});
     // console.log(`admin: ${user.isAdmin}`);
     if(user.isAdmin) return res.status(401).json({message:"You cant remove admin"});
-    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message:`there is no user with ID : ${id}`});
-    const existId = await UserModel.findById(id);
-    if(!existId) return res.status(400).json({message:`there is no user with ID : ${id}`});
     try {
-        await UserModel.findOneAndRemove(id);
+        await UserModel.findByIdAndDelete(id);
         res.status(200).json({message : `user with ID : ${id} removed successfully`});
     } catch (err) {
         next(err)
