@@ -53,7 +53,7 @@ export const Auth = () => {
       dispatchAuth({type:"LOGIN_START"});
       // this line login directly here
       try {
-        const { data } = await axios.post("http://localhost:1818/api/v1/auth/login", userData);
+        const { data } = await axios.post("/v1/auth/login", userData);
         // console.log(data);
         if(data.isAdmin) {
           dispatchAuth({type: "LOGIN_SUCCESS", payload: data.details});

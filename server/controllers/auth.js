@@ -13,7 +13,11 @@ export const registerUser = async (req,res,next) => {
         const newUser = new UserModel({
             userName: req.body.username,
             userPassword: hashedPassword,
-            userMail: req.body.usermail
+            userMail: req.body.usermail,
+            country: req.body.country,
+            img: req.body.img,
+            phone: req.body.phone,
+            city: req.body.city,
         })
 
         await newUser.save();

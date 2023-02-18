@@ -8,7 +8,7 @@ import { SearchContext } from '../../../context/SearchContext';
 import useFetch from '../../../hooks/useFetch';
 import InputNumber from './inputNumber/InputNumber';
 import './searchForm.scss';
-import { getDatesRange } from '../../functions/getDatesRange';
+import { getDatesRange } from '../../../functions/getDatesRange';
 
 const SearchForm = () => {
   const {destination, date, options, dispatchSearch} = useContext(SearchContext);

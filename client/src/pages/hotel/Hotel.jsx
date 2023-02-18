@@ -8,7 +8,7 @@ import  useFetch  from "../../hooks/useFetch"
 import HotelPageSkeleton from "../../components/skeleton/HotelPageSkeleton";
 import { SearchContext } from "../../context/SearchContext";
 import ReserveModel from "../../components/models/reserveModel/ReserveModel";
-import { getDatesRange } from "../../components/functions/getDatesRange";
+import { getDatesRange } from "../../functions/getDatesRange";
 const Hotel = () => {
   const { date, options } = useContext(SearchContext);
   let nightNumb = getDatesRange(date[0].startDate,date[0].endDate).length;
