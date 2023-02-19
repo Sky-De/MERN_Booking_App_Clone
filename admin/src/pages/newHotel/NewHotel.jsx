@@ -25,7 +25,7 @@ const NewHotel = ({ inputs, title }) => {
       const { data } = await axios.post("/v1/hotels", info);
       setLoading(false);
       console.log(data);
-      navigate("/hotels")
+      navigate("/hotels");
     } catch (err) {
       setLoading(false);
       setError({err:true,message:err.response.data.message});

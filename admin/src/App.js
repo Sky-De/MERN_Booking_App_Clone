@@ -11,6 +11,7 @@ import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 import NewUser from "./pages/newUser/NewUser";
 import NewHotel from "./pages/newHotel/NewHotel";
+import NewRoom from "./pages/newRoom/NewRoom";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   const { user } = useContext(AuthContext);
@@ -45,14 +46,14 @@ function App() {
                 element={<ProtectetRoute><NewHotel inputs={hotelInputs} title="Add New Hotel" /></ProtectetRoute>}
               />
             </Route>
-            {/* <Route path="rooms">
+            <Route path="rooms">
               <Route index element={<ProtectetRoute><List columns={roomColumns}/></ProtectetRoute>} />
               <Route path=":roomId" element={<Single />} />
               <Route
                 path="new"
-                element={<ProtectetRoute><New inputs={roomInputs} title="Add New Room" /></ProtectetRoute>}
+                element={<ProtectetRoute><NewRoom inputs={roomInputs} title="Add New Room" /></ProtectetRoute>}
               />
-            </Route> */}
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
