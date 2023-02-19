@@ -1,11 +1,41 @@
-import "./new.scss";
+import "./newUser.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Alert, CircularProgress } from "@mui/material";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const New = ({ inputs, title }) => {
+const NewUser = ({ inputs, title }) => {
+  const navigate = useNavigate();
+  // needs add cloudinary/fileStore goole later to upload img
   const [file, setFile] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState({err:false,message:""});
+  const [info, setInfo] = useState({});
+  useEffect(()=> {
+    setError({err:false,message:""});
+  },[]);
+
+  const handleChange = (e) => {
+    setInfo({...info, [e.target.id]:e.target.value});
+  }
+  const createUser = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const { data } = await axios.post("/v1/auth/register", info);
+      setLoading(false);
+      console.log(data);
+      navigate("/users");
+    } catch (err) {
+      setLoading(false);
+      setError({err:true,message:err.response.data.message});
+    }
+   
+  }
+
 
   return (
     <div className="new">
@@ -43,11 +73,13 @@ const New = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} placeholder={input.placeholder} />
+                  <input onChange={handleChange} type={input.type} placeholder={input.placeholder} id={input.id}/>
                 </div>
               ))}
-              <button>Send</button>
+              <button onClick={createUser}>Send</button>
             </form>
+                {loading && <CircularProgress color="success"/>}
+                {error.err && <Alert severity="error" >{error.message}</Alert>}
           </div>
         </div>
       </div>
@@ -55,4 +87,4 @@ const New = ({ inputs, title }) => {
   );
 };
 
-export default New;
+export default NewUser;

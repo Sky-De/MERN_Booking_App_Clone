@@ -5,17 +5,25 @@ import RoomModel from "../models/RoomModel.js";
 // GET ALL
 // temperary just gets all featured:true items
 // also limit part
-export const getHotels = async(req,res,next) => {
-    const {rate ,min, max, ...others } = req.query;
-    try {
-        const count = await HotelModel.countDocuments({rating: {$gt : rate || 0}});
-        const hotels = await HotelModel.find({
-            ...others,
-            price: {$gt: min || 50, $lt: max || 99999},
-            rating: {$gt : rate || 0}
-        }).limit(req.query.limit);
-        res.status(200).json(hotels)
+// export const getHotels = async(req,res,next) => {
+//     const {rate ,min, max, ...others } = req.query;
+//     try {
+//         const count = await HotelModel.countDocuments({rating: {$gt : rate || 0}});
+//         const hotels = await HotelModel.find({
+//             ...others,
+//             price: {$gt: min || 50, $lt: max || 99999},
+//             rating: {$gt : rate || 0}
+//         }).limit(req.query.limit);
+//         res.status(200).json(hotels)
         
+//     } catch (err) {
+//         next(err)
+//     }
+// }
+export const getHotels = async(req,res,next) => {
+    try {
+        const hotels = await HotelModel.find();
+        res.status(200).json(hotels);
     } catch (err) {
         next(err)
     }

@@ -63,17 +63,19 @@ export const createRoom = async(req,res,next) => {
 
 export const deleteRoom = async(req,res,next) => {
     const { id } = req.params;
-    const hotelId = req.params.hotelid;
-    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message: `there is no room with ID : ${id}`});
-    const existId = await RoomModel.findById(id)
-    if(!existId) return res.status(404).json({message: `there is no room with ID : ${id}`});
-    try {
-        await HotelModel.findByIdAndUpdate(hotelId,{$pull: { rooms: id}},{new:true})
-        await RoomModel.findByIdAndRemove(id);
-         res.status(200).json({message: `Room with ID : ${id} deleted successfully and hotel with ID : ${hotelId} updated`})
-    } catch (err) {
-        next(err)        
-    }
+    console.log(id);
+    res.json("done")
+    // const hotelId = req.params.hotelid;
+    // if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message: `there is no room with ID : ${id}`});
+    // const existId = await RoomModel.findById(id)
+    // if(!existId) return res.status(404).json({message: `there is no room with ID : ${id}`});
+    // try {
+    //     await HotelModel.findByIdAndUpdate(hotelId,{$pull: { rooms: id}},{new:true})
+    //     await RoomModel.findByIdAndDelete(id);
+    //      res.status(200).json({message: `Room with ID : ${id} deleted successfully and hotel with ID : ${hotelId} updated`})
+    // } catch (err) {
+    //     next(err)        
+    // }
 }
 
 
